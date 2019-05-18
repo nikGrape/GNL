@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 21:56:03 by vinograd          #+#    #+#             */
-/*   Updated: 2019/05/17 19:52:00 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/05/17 20:36:35 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ int		get_next_line(const int fd, char **line)
 	while (read(fd, buf, BUFF_SIZE) > 0)
 	{
 		buf[BUFF_SIZE] = '\0';
-		if ((p_n = strchr(buf, '\n')) != 0)
+		if ((p_n = ft_strchr(buf, '\n')) != 0)
 			ft_strclr(p_n);
 		tmp = str;
-		len = strlen(str);
+		len = ft_strlen(str);
 		str = ft_strnew(len + BUFF_SIZE + 1);
-		strcpy(str, tmp);
+		ft_strcpy(str, tmp);
 		ft_strdel(&tmp);
-		strcat(str, buf);
+		ft_strcat(str, buf);
 		if (p_n != 0)
 			break ;
 		ft_strclr(buf);
@@ -43,13 +43,20 @@ int		get_next_line(const int fd, char **line)
 	*line = str;
 	return (ret);
 }
-
+/*
 int		main(void)
 {
 	int		fd;
 	char	*p;
+	int		i;
 
+	i = 0;
 	fd = open("text.txt", O_RDONLY);
-	get_next_line(fd, &p);
-	printf("%s\n", p);
-}
+	while (i < 5)
+	{
+		get_next_line(fd, &p);
+		printf("%s\n", p);
+		i++;
+	}
+}*/
+
