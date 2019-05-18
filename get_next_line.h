@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 21:56:13 by vinograd          #+#    #+#             */
-/*   Updated: 2019/05/16 20:03:09 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/05/17 13:43:13 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "libft.h"
+#include <string.h>
 
 int		get_next_line(const int fd, char **line);
 
