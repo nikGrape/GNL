@@ -5,21 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/13 21:56:13 by vinograd          #+#    #+#             */
-/*   Updated: 2019/05/21 17:14:50 by vinograd         ###   ########.fr       */
+/*   Created: 2019/05/27 22:46:23 by vinograd          #+#    #+#             */
+/*   Updated: 2019/05/28 00:24:15 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# define BUFF_SIZE 19
+
+# define BUFF_SIZE 16
+# include "libft.h"
 # include <fcntl.h>
-# include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "libft/libft.h"
-# include <string.h>
+# include <unistd.h>
 
-int		get_next_line(const int fd, char **line);
+typedef struct		s_arr
+{
+	int				fd;
+	char			*rest;
+	struct s_arr	*next;
+}					t_arr;
+
+t_arr				*ft_newlist(const int fd);
+char				*checkrest(char **p_n, char *rest);
+int					get_line(const int fd, char **line, char *rest);
+int					get_next_line(const int fd, char **line);
 
 #endif
