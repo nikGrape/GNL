@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 21:56:03 by vinograd          #+#    #+#             */
-/*   Updated: 2019/05/28 00:25:00 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/05/28 15:43:04 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int			get_line(const int fd, char **line, char *rest)
 	int				rd;
 
 	p_n = NULL;
+	rd = 1;
 	*line = checkrest(&p_n, rest);
 	while (p_n == 0 && ((rd = read(fd, buf, BUFF_SIZE)) != 0))
 	{
@@ -87,3 +88,23 @@ int			get_next_line(const int fd, char **line)
 	ret = get_line(fd, line, tmp->rest);
 	return (ret);
 }
+
+/*int		main()
+{
+	char	*line;
+	int		fd;
+	int		ret;
+
+	fd = open("text.txt", O_RDONLY);
+	line = NULL;
+	ret = 1;
+	while (ret)
+	{
+		ret = get_next_line(fd, &line);
+		printf("%s\t%d\n", line, ret);
+		ft_strdel(&line);
+	}
+	close(fd);
+//	while (1);
+}
+*/
